@@ -1,11 +1,11 @@
-#' The nifH_seqtag_genometag_taxonomy data
+#' The nifH_seqtag_genometag data
 #'
-#' The nifH_seqtag_genometag_taxonomy data is used to store the taxonomic information, sequence tags and genome tags.
+#' The nifH_seqtag_genometag data is used to store the taxonomic information, sequence tags and genome tags.
 #'
 #' @docType data
 #' @keywords data.frame
-#' @name nifH_seqtag_genometag_taxonomy
-#' @usage data(nifH_seqtag_genometag_taxonomy)
+#' @name nifH_seqtag_genometag
+#' @usage data(nifH_seqtag_genometag)
 NULL
 
 #' The dataset_nifH data
@@ -16,4 +16,15 @@ NULL
 #' @keywords microtable
 #' @name dataset_nifH
 #' @usage data(dataset_nifH)
+NULL
+
+
+#' The mapped_KO data
+#'
+#' The mapped_KO data is the KEGG orthology data for each genome.
+#'
+#' @docType data
+#' @keywords data.frame
+#' @name mapped_KO
+#' @usage data(mapped_KO)
 NULL

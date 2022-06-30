@@ -1,12 +1,12 @@
-Package: nifFun
+Package: niffun
 Type: Package
 Title: Functional prediction and taxonomic assignment of diazotrophic community
-Version: 0.1.0
+Version: 0.0.1
 Authors@R: c(person("Chi", "Liu", role = c("aut", "cre"), email = "liuchi0426@126.com"))
 Author: Chi Liu [aut, cre]
 Maintainer: Chi Liu <liuchi0426@126.com>
 Description: Functional prediction and taxonomic assignment of diazotrophic community based on nifH gene amplicon-sequencing or metagenomic sequencing
-URL: https://github.com/ChiLiubio/nifFun
+URL: https://github.com/ChiLiubio/niffun
 Depends: R (>= 3.5.0)
 Imports: R6, dplyr, magrittr, microeco
 Suggests: Biostrings, seqinr
@@ -14,7 +14,7 @@ License: GPL-3
 LazyData: true
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-03-23
+Packaged: 2022-06-30
 Repository: CRAN
-Date/Publication: 2022-03-23
+Date/Publication: 2022-06-30
 RoxygenNote: 7.1.2
