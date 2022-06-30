@@ -2,9 +2,9 @@
 % Please edit documentation in R/trans_niffun.R
 \name{trans_niffun}
 \alias{trans_niffun}
-\title{Create an R6 object for phenotypic and functional prediction of nitrogen fixers.}
+\title{Create an R6 object for functional prediction of nitrogen fixers based on nifH sequences.}
 \description{
-This class is a wrapper for a series of phenotypic and functional analysis on diazotrophic communities based on the taxonomy.
+This class is a wrapper for a series of functional analysis on diazotrophic communities based on the nifH sequences.
 }
 \examples{
 

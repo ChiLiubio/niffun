@@ -1,8 +1,8 @@
 #' @title
-#' Create an R6 object for phenotypic and functional prediction of nitrogen fixers.
+#' Create an R6 object for functional prediction of nitrogen fixers based on nifH sequences.
 #'
 #' @description
-#' This class is a wrapper for a series of phenotypic and functional analysis on diazotrophic communities based on the taxonomy.
+#' This class is a wrapper for a series of functional analysis on diazotrophic communities based on the nifH sequences.
 #'
 #' @export
 trans_niffun <- R6::R6Class(classname = "trans_niffun",
@@ -19,6 +19,9 @@ trans_niffun <- R6::R6Class(classname = "trans_niffun",
 		initialize = function(dataset = NULL){
 			if(is.null(dataset)){
 				stop("Please provide dataset !")
+			}
+			if(is.null(dataset$rep_fasta)){
+				stop("The rep_fasta is missing in your dataset object! The nifH fasta file is necessary! Please use help(microtable) to see the rep_fasta description!")
 			}
 			self$dataset <- clone(dataset)
 		},
@@ -55,22 +58,18 @@ trans_niffun <- R6::R6Class(classname = "trans_niffun",
 				stop(paste0("Temporay folder--", path_to_temp_folder, " is not existed! Please check it!"))
 			}
 			
-			if(is.null(self$dataset$rep_fasta)){
-				stop("The rep_fasta is missing in your dataset object! The fasta file is necessary in Tax4Fun2! Use help(microtable) to see the rep_fasta description!")
+			# judge input type: DNA or protein
+			unique_char <- self$dataset$rep_fasta[[1]] %>% 
+				as.character %>% 
+				strsplit(split = "") %>% 
+				unlist %>%
+				unique
+			if(all(unique_char %in% c("G", "A", "C", "T", "N"))){
+				seq_type <- "DNA"
 			}else{
-				# judge input type: DNA or protein
-				unique_char <- self$dataset$rep_fasta[[1]] %>% 
-					as.character %>% 
-					strsplit(split = "") %>% 
-					unlist %>%
-					unique
-				if(all(unique_char %in% c("G", "A", "C", "T", "N"))){
-					seq_type <- "DNA"
-				}else{
-					seq_type <- "protein"
-				}
+				seq_type <- "protein"
 			}
-
+		
 			# check whether blast tool is available
 			blast_soft <- ifelse(seq_type == "DNA", "blastn", "blastp")
 			if(is.null(blast_tool_path)){

@@ -1,5 +1,5 @@
 # niffun
-An R package for functional prediction of diazotrophic community
+An R package for functional prediction of diazotrophic community based on nifH sequences.
 
 ![](https://img.shields.io/badge/Test-0.0.1-red.svg)
 
@@ -21,7 +21,7 @@ Then, place the blast into the computer system env path or provide the directory
 
 ```r
 library(niffun)
-# use the example data
+# use the example data dataset_nifH
 data("dataset_nifH")
 n1 <- trans_niffun$new(dataset = dataset_nifH)
 # create test directory for the temporary files
